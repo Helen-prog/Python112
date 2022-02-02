@@ -1197,3 +1197,7 @@ import locale
 # print(time.strftime("Сегодня: %B %d, %Y", time.localtime()))
 
 print("Hello")
+print("Hello")
+print("Hello")
+print("Hello")
+print("Hello")
