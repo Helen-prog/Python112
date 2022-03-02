@@ -2977,31 +2977,94 @@
 # # print(typed_fn2("Hello, ", "world", 2))
 # print(typed_fn3("Hello, ", "world!  ", z=5))
 
-def decor(tx=None, dec_text=""):
-    def wrapper(func):
-        def wrap(*args):
-            print(dec_text, end="")
-            func(*args)
+# def decor(tx=None, dec_text=""):
+#     def wrapper(func):
+#         def wrap(*args):
+#             print(dec_text, end="")
+#             func(*args)
+#
+#         return wrap
+#
+#     if tx is None:
+#         return wrapper
+#     else:
+#         return wrapper(tx)
+#
+#
+# @decor
+# def hello_world2(text):
+#     print(text)
+#
+#
+# hello_world2("Hi!")
+#
+#
+# @decor(dec_text="Hello, ")
+# def hello_world(text):
+#     print(text)
+#
+#
+# hello_world("world!")
 
-        return wrap
+# print(int('19'))
+# print(int('19.5'))
 
-    if tx is None:
-        return wrapper
-    else:
-        return wrapper(tx)
+# print(int("100", 2))
+# print(int("100", 8))
+# print(int("100", 10))
+# print(int("100", 16))
+
+# print(bin(18))  # 0b10010
+# print(oct(18))  # 0o22
+# print(hex(18))  # 0x12
+#
+# print(0b10010)
+# print(0o22)
+# print(0x12)
+
+# q = 'Pyt'
+# w = "hon"
+# e = q + w
+# print(e)
+# print(e * 3)
+# print(e * -3)
+# print(e in "I am learning Python")
+# print(e in "I am learning Java")
+
+# s = "Hello"
+# print(s[::-1])
+# print(s[1])
+# print(s[-5])
+# print(s[-6])
+
+# s = 'abcdefgh'
+#
+# print(s[slice(2, 5)])
+# print(s[slice(5, None, -1)])
+# print(s[slice(None, None, 2)])
+# print(s[slice(None, None, -1)])
+
+# s = "python"
+# print(id(s))
+# s = s[:3] + 't' + s[4:]
+# print(id(s))
+# print(s)  # pytton
+
+def change_char_to_str(s, old, new):
+    s2 = ""
+    i = 0
+
+    while i < len(s):
+        if s[i] == old:
+            s2 = s2 + new
+        else:
+            s2 = s2 + s[i]
+        i = i + 1
+
+    return s2
 
 
-@decor
-def hello_world2(text):
-    print(text)
-
-
-hello_world2("Hi!")
-
-
-@decor(dec_text="Hello, ")
-def hello_world(text):
-    print(text)
-
-
-hello_world("world!")
+str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
+str2 = change_char_to_str(str1, "N", "P")
+print("str1 =", str1)
+print("str2 =", str2)
