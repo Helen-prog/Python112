@@ -3050,21 +3050,190 @@
 # print(id(s))
 # print(s)  # pytton
 
-def change_char_to_str(s, old, new):
-    s2 = ""
-    i = 0
+# def change_char_to_str(s, old, new):
+#     s2 = ""
+#     i = 0
+#
+#     while i < len(s):
+#         if s[i] == old:
+#             s2 = s2 + new
+#         else:
+#             s2 = s2 + s[i]
+#         i = i + 1
+#
+#     return s2
+#
+#
+# str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
+# str2 = change_char_to_str(str1, "N", "P")
+# print("str1 =", str1)
+# print("str2 =", str2)
 
-    while i < len(s):
-        if s[i] == old:
-            s2 = s2 + new
-        else:
-            s2 = s2 + s[i]
-        i = i + 1
+# print('I\'m learning\nPython')
+# print('C:\\file.txt')
+# print(r'C:\file\\'[:-1])
+# print(r'C:\file' + "\\")
+# print('C:\\file\\')
 
-    return s2
+# name = "Дмитрий"
+# age = 25
+# print("Меня зовут ", name, ". Мне ", age, " лет.", sep="")
+# print("Меня зовут " + name + ". Мне " + str(age) + " лет.")
+# print(f"Меня зовут {name}. Мне {age} лет.")
+
+# import math as m
+#
+# print(f"Значение числа pi: {m.pi:.2f}")
+# x = 13
+# y = 3
+# print(f"{x} / {y} = {round(x / y, 2)}")
+
+# a = [1, 2, 3, 4, 5, 6]
+# print(f"Третий элемент списка {a[3] * 2}")
+
+# name = "друг"
+# prof = "программист"
+# lang = "Python"
+#
+# message = (
+#     f"Привет {name}. "
+#     f"Ты {prof}. "
+#     f"На языке {lang}."
+# )
+#
+# print(message)
+# a = 74
+# print(f"{{{{{a}}}}}")
+
+# d = "my_doc"
+# f = "data.txt"
+# print(fr"home\{d}\{f}")
+# print("home\\" + d + "\\" + f)
+
+# """<div>
+#     <a href="#">content</a>
+# </div>
+# """
+# "Hello1"
+# s = "Hello"
+# print(s)
+
+# def square(n):
+#     """Принимает число n, возвращает квадрат числа n"""
+#     a = n ** 2
+#     return a
+#
+#
+# print(square(5))
+# print(square.__doc__)
+
+# import math
+#
+#
+# def cylinder(r, h):
+#     """
+#     Вычисляет площадь цилиндра.
+#
+#     Вычисляет площадь цилиндра на основании заданной высоты и радиуса основания
+#     :param r: положительное число, радиус основания цилиндра
+#     :param h: положительное число, высота цилиндра
+#     :return: положительное число, площадь цилиндра
+#     """
+#     return 2 * math.pi * r * (r + h)
+#
+#
+# print(cylinder(2, 4))
+# print(cylinder.__doc__)
+
+# a = "При" \
+#     "вет"
+# b = 'При' \
+#     'вет'
+# c = """При
+# вет"""
+# d = '''При
+# вет'''
+# print(f"{a} {b} {c} {d}")
 
 
-str1 = "Я изучаю Nython. Мне нравится Nython. Nython очень интересный язык программирования."
-str2 = change_char_to_str(str1, "N", "P")
-print("str1 =", str1)
-print("str2 =", str2)
+# print(ord('a'))
+# print(ord('#'))
+# print(ord('г'))
+
+# while True:
+#     n = input("-> ")
+#     if n != "-1":
+#         print(ord(n))
+#     else:
+#         break
+
+# my_str = "Test string for me"
+# arr = [ord(x) for x in my_str]
+# print("ASCII коды", arr)
+# arr = [int(sum(arr) / len(arr))] + arr
+# print("Среднее арифметическое: ", arr)
+# arr += [x for x in [ord(x) for x in (input("-> ") + " "[:3])] if x not in arr]
+# print(arr)
+# if arr[-1] in arr[:-1]:
+#     print(arr.count(arr[-1]) - 1)
+# arr.sort(reverse=True)
+# print(arr)
+
+# print(chr(97))
+# print(chr(40))
+# print(chr(540))
+
+# a = 122
+# b = 97
+#
+# if a > b:
+#     for x in range(b, a + 1):
+#         print(chr(x), end=" ")
+# else:
+#     for x in range(a, b + 1):
+#         print(chr(x), end=" ")
+
+# from random import randint
+#
+# SHORTEST = 7
+# LONGEST = 10
+# MIN_ASCII = 33
+# MAX_ASCII = 126
+#
+#
+# def random_password():
+#     random_length = randint(SHORTEST, LONGEST)  # генерируем случайную длину пароля
+#     res = ""
+#     for i in range(random_length):
+#         random_char = chr(randint(MIN_ASCII, MAX_ASCII))
+#         res = res + random_char
+#     return res
+#
+#
+# print(random_password())
+# print(random_password())
+
+s = "hello, WORLD! I am learning Python."
+# print(s.capitalize())  # Hello, world! i am learning python.
+# print(s.lower())  # hello, world! i am learning python.
+# print(s.upper())  # HELLO, WORLD! I AM LEARNING PYTHON.
+# print(s.swapcase())  # HELLO, world! i AM LEARNING pYTHON.
+# print(s.title())  # Hello, World! I Am Learning Python.
+#
+# print(s.count("h", 0, -4))  # количество заданных символов
+print(s.find("Python"))  # возвращает индекс порвого вхождения подстроки
+print(s.find("cPython"))  # вернет -1 - если вхождение не найдено
+print(s.index("Python"))  # возвращает индекс порвого вхождения подстроки
+print(s.index("cPython"))  # возвращает ValueError - если вхождение не найдено
+
+# s = 'one two'
+# s2 = s[s.find(' ') + 1:] + ' ' + s[:s.find(' ')]
+# print(s2)
+
+# s = 'ab12c59p7dq'
+# digits = []
+# for i in s:
+#     if '0123456789'.find(i) != -1:
+#         digits.append(int(i))
+#
+# print(digits)
