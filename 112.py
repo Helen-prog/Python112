@@ -3639,17 +3639,266 @@ import re
 # print(names[1][1][0])
 # print(isinstance(names[1][1][0], list))
 
-names = ['Adam', ['Bob', ['Chet', 'Cat'], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill'], 'Ann']
+# names = ['Adam', ['Bob', ['Chet', 'Cat'], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill'], 'Ann']
+#
+#
+# def count_items(lst):
+#     count = 0
+#     for item in lst:
+#         if isinstance(item, list):
+#             count += count_items(item)
+#         else:
+#             count += 1
+#     return count
+#
+#
+# print(count_items(names))
 
 
-def count_items(lst):
-    count = 0
-    for item in lst:
-        if isinstance(item, list):
-            count += count_items(item)
-        else:
-            count += 1
-    return count
+# def union(s):
+#     if not s:  # s == []
+#         return s
+#     if isinstance(s[0], list):
+#         return union(s[0]) + union(s[1:])
+#     return s[:1] + union(s[1:])  # 'Adam', 'Bob'
+#
+#
+# names = ['Adam', ['Bob', ['Chet', 'Cat'], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill'], 'Ann']
+# print("Выпрямленный список: ", union(names))
 
 
-print(count_items(names))
+# def remove(text):
+#     if not text:
+#         return ""
+#     if text[0] == "\t" or text[0] == " ":
+#         return remove(text[1:])
+#     else:
+#         return text[0] + remove(text[1:])
+#
+#
+# print(remove(" He   llo\tWor  ld "))
+
+# def seq_search(s, item):
+#     pos = 0
+#     found = False
+#     while pos < len(s) and not found:
+#         if s[pos] == item:
+#             found = True
+#         else:
+#             pos = pos + 1
+#     return found
+#
+#
+# lst = [1, 2, 32, 8, 17, 19, 42, 13, 0]
+# print(seq_search(lst, 3))
+# print(seq_search(lst, 13))
+
+
+# def seq_search(s, item):
+#     pos = 0
+#     found = False
+#     stop = False
+#     while pos < len(s) and not found and not stop:
+#         if s[pos] == item:
+#             found = True
+#         else:
+#             if s[pos] > item:
+#                 stop = True
+#             else:
+#                 pos = pos + 1
+#     return found
+#
+#
+# lst = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+# print(seq_search(lst, 3))
+# print(seq_search(lst, 13))
+
+# def binary_search(s, item):
+#     first = 0
+#     last = len(s) - 1  # 8
+#     found = False
+#
+#     while first <= last and not found:
+#         midpoint = (first + last) // 2  # 2
+#         if s[midpoint] == item:  # 2 == 2
+#             found = True
+#         else:
+#             if item < s[midpoint]:  # 2 < 1
+#                 last = midpoint - 1  # 3
+#             else:
+#                 first = midpoint + 1  # 2
+#
+#     return found
+#
+#
+# lst = [0, 1, 2, 8, 13, 17, 19, 32, 42]
+# # print(binary_search(lst, 3))
+# print(binary_search(lst, 2))
+
+
+import random as r
+import time as t
+
+#
+#
+# def bubble(array):
+#     for i in range(len(array) - 1):
+#         for j in range(len(array) - i - 1):
+#             if array[j] > array[j + 1]:
+#                 array[j], array[j + 1] = array[j + 1], array[j]
+#         #     print(a)
+#         # print("-" * 40)
+#
+#
+# a = [r.randint(1, 99) for i in range(10)]
+#
+# print(a)
+# # start = t.monotonic()
+# bubble(a)
+# print(a)
+# res = t.monotonic() - start
+# print(round(res, 3), "sec")
+# def merge_sort(a):
+#     n = len(a)
+#     if n < 2:
+#         return a
+#
+#     l = merge_sort(a[:n // 2])
+#     r = merge_sort(a[n // 2:n])
+#
+#     i = j = 0
+#     res = []
+#
+#     while i < len(l) or j < len(r):
+#         if not i < len(l):
+#             res.append(r[j])
+#             j += 1
+#         elif not j < len(r):
+#             res.append(l[i])
+#             i += 1
+#         elif l[i] < r[j]:
+#             res.append(l[i])
+#             i += 1
+#         else:
+#             res.append(r[j])
+#             j += 1
+#
+#     return res
+#
+#
+# # array = [8, 2, 6, 4, 5]
+# array = [r.randint(1, 99) for i in range(10000)]
+# # print(array)
+# start = t.monotonic()
+# array = merge_sort(array)
+# # print(array)
+# res = t.monotonic() - start
+# print(round(res, 3), "sec")
+
+# def shell_sort(s):
+#     gap = len(s)
+#
+#     while gap > 0:
+#         for val in range(gap, len(s)):
+#             cur_val = s[val]
+#             pos = val
+#
+#             while pos >= gap and s[pos - gap] > cur_val:
+#                 s[pos] = s[pos - gap]
+#                 pos -= gap
+#                 s[pos] = cur_val
+#
+#         gap //= 2
+#         # print(gap, "Список:", s)
+#     return s
+#
+#
+# # a = [10, 44, 26, 14, 67, 21, 9, 87]
+# a = [r.randint(1, 99) for i in range(10000)]
+# # print(a)
+# start = t.monotonic()
+# shell_sort(a)
+# # print(a)
+# res = t.monotonic() - start
+# print(round(res, 3), "sec")
+
+
+# a = [r.randint(1, 99) for i in range(10000000)]
+# start = t.monotonic()
+# a.sort()
+# res = t.monotonic() - start
+# print(round(res, 3), "sec")
+
+# Файлы
+# f = open(r'D:\Python112\text.txt', 'r')
+#
+# print(f.read(3))
+# print(f.read())
+#
+# f.close()
+
+# f = open('test.txt', 'r')
+# print(f.readline())
+# print(f.readline(8))
+# print(f.readline())
+# print(f.readline())
+#
+# f.close()
+
+
+# f = open('test.txt', 'r')
+# print(f.readlines(5))
+# f.close()
+
+# f = open('test.txt', 'r')
+# for line in f:
+#     print(line)
+# f.close()
+
+# f = open('test.txt', 'r')
+# print(len(f.readlines()))
+# f.close()
+
+
+# f = open('xyz.txt', 'w')
+# f.write('Hello\nWorld!')
+# f.close()
+
+# f = open('xyz.txt', 'a')
+# lines = ['This is line 1', 'This is line 2']
+# print(f.writelines(lines))
+# f.close()
+
+
+# f = open('xyz.txt', 'w')
+# lst = [str(i) for i in range(1, 20)]
+# print(lst)
+# for i in lst:
+#     f.write(i + "\t")
+# f.close()
+
+
+f = open('text2.txt', 'w')
+f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;")
+f.close()
+
+f = open('text2.txt', 'r')
+rd = f.readlines()
+print(rd)
+print()
+for i in range(len(rd)):
+    if rd[i] == "изменить строку в списке;\n":
+        rd[i] = "Hello World\n"
+print(rd)
+print()
+f.close()
+
+f = open('text2.txt', 'w')
+f.writelines(rd)
+f.close()
+
+f = open('text2.txt', 'r')
+# for line in f:
+#     print(line)
+print(f.read())
+f.close()
