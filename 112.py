@@ -4293,41 +4293,266 @@ import time
 # print(p2.count)
 
 
-class Robot:
-    k = 0
+# class Robot:
+#     k = 0
+#
+#     def __init__(self, name):
+#         self.name = name
+#         print("Инициализация робота:", self.name)
+#         print("Приветствую! Меня зовут:", self.name)
+#         Robot.k += 1
+#
+#     def __del__(self):
+#         print(self.name, "выключается!")
+#         Robot.k -= 1
+#
+#         if Robot.k == 0:
+#             print(self.name, "был последним")
+#         else:
+#             print("Работающих роботов осталось:", Robot.k)
+#
+#
+# droid1 = Robot('R2-D2')
+# print("Численность роботов:", Robot.k)
+#
+# droid2 = Robot('C-3PO')
+# print("Численность роботов:", Robot.k)
+#
+# droid3 = Robot('QQ-D2')
+# print("Численность роботов:", Robot.k)
+#
+# droid4 = Robot('WW-3PO')
+# print("Численность роботов:", Robot.k)
+#
+# print("*" * 20)
+# del droid1
+# del droid2
+# del droid3
+# del droid4
+#
+# print("Численность роботов", Robot.k)
 
-    def __init__(self, name):
-        self.name = name
-        print("Инициализация робота:", self.name)
-        print("Приветствую! Меня зовут:", self.name)
-        Robot.k += 1
 
-    def __del__(self):
-        print(self.name, "выключается!")
-        Robot.k -= 1
+# class Point:
+#
+#     def __init__(self, x, y):
+#         self.__x = self.__y = 0
+#         if Point.__check_value(x) and Point.__check_value(y):
+#             self.__x = x
+#             self.__y = y
+#
+#     # def set_x(self, x):  # установить
+#     #     self.__x = x
+#     #
+#     # def get_x(self):  # получить
+#     #     return self.__x
+#
+#     def __check_value(z):
+#         if isinstance(z, int) or isinstance(z, float):
+#             return True
+#         return False
+#
+#     def set_coords(self, x, y):
+#         if Point.__check_value(x) and Point.__check_value(y):
+#             self.__x = x
+#             self.__y = y
+#         else:
+#             print("Координаты должны быть числами")
+#
+#     def get_coords(self):
+#         return self.__x, self.__y
+#
+#
+# p1 = Point(5, 10)
+# # p1.set_x(100)
+# # print(p1.get_x())
+# # p1.set_coords(50.56, 70.2)
+# # print(p1.__x, p1.__y)
+# # p1.__x = 100
+# # p1.y = 'abc'
+# # print(p1.x, p1.y)
+# print(p1.get_coords())
+# print(p1.__dict__)
+# print(p1._Point__x)
+# p1._Point__x = 111
+# print(p1.__dict__)
 
-        if Robot.k == 0:
-            print(self.name, "был последним")
-        else:
-            print("Работающих роботов осталось:", Robot.k)
+# import math
+#
+#
+# class Rectangle:
+#
+#     def __init__(self, x, y):
+#         self.__x = self.__y = 0
+#         if Rectangle.__check_value(x) and Rectangle.__check_value(y):
+#             self.__x = x
+#             self.__y = y
+#
+#     def __check_value(z):
+#         if isinstance(z, (int, float)):
+#             return True
+#         return False
+#
+#     def set_x(self, x):
+#         if Rectangle.__check_value(x):
+#             self.__x = x
+#
+#     def set_y(self, y):
+#         if Rectangle.__check_value(y):
+#             self.__y = y
+#
+#     def get_x(self):
+#         return self.__x
+#
+#     def get_y(self):
+#         return self.__y
+#
+#     def get_area(self):
+#         return self.__x * self.__y
+#
+#     def get_perim(self):
+#         return 2 * (self.__x + self.__y)
+#
+#     def get_gipp(self):
+#         return math.sqrt(self.__x ** 2 + self.__y ** 2)
+#
+#     def print_area(self):
+#         # for i in range(self.__x):
+#         #     print('*' * self.__y)
+#         print(('*' * self.__y + '\n') * self.__x)
+#
+#
+# r1 = Rectangle(3, 4)
+# # a = int(input("Высота: "))
+# # b = int(input("Ширина: "))
+# # r1.set_x(a)
+# # r1.set_y(b)
+# # print(r1.get_y(), r1.get_x())
+# # print(r1.get_area())
+# # print(r1.get_perim())
+# # print(round(r1.get_gipp(), 2))
+# r1.print_area()
+#
+# r2 = Rectangle(2, 14)
+# r2.print_area()
+#
+# r3 = Rectangle(6, 10)
+# r3.print_area()
 
 
-droid1 = Robot('R2-D2')
-print("Численность роботов:", Robot.k)
+# class Point:
+#     WIDTH = 5
+#     __slots__ = ["__x", "__y", "z"]
+#
+#     def __init__(self, x, y):
+#         self.__x = self.__y = 0
+#         if Point.__check_value(x) and Point.__check_value(y):
+#             self.__x = x
+#             self.__y = y
+#
+#     def __check_value(z):
+#         if isinstance(z, int) or isinstance(z, float):
+#             return True
+#         return False
+#
+#     def set_coords(self, x, y):
+#         if Point.__check_value(x) and Point.__check_value(y):
+#             self.__x = x
+#             self.__y = y
+#         else:
+#             print("Координаты должны быть числами")
+#
+#     def get_coords(self):
+#         return self.__x, self.__y
 
-droid2 = Robot('C-3PO')
-print("Численность роботов:", Robot.k)
+    # def __getattr__(self, item):
+    #     return f"В классе {__class__.__name__} отсутствует атрибут: {item}"
+    #
+    # def __getattribute__(self, item):
+    #     if item == "_Point__x":
+    #         return "Закрытая переменная"
+    #     else:
+    #         return object.__getattribute__(self, item)
+    #
+    # def __setattr__(self, key, value):
+    #     if key == "WIDTH":
+    #         raise AttributeError("Нельзя изменять значение WIDTH")
+    #     else:
+    #         self.__dict__[key] = value
 
-droid3 = Robot('QQ-D2')
-print("Численность роботов:", Robot.k)
 
-droid4 = Robot('WW-3PO')
-print("Численность роботов:", Robot.k)
+# p1 = Point(5, 10)
+# p1.z = 1
+# print(p1.z)
+# print(p1.__dict__)
+# p1.zzz = 12
+# print(p1.zzz)
+# p1.set_coords(45, 20)
+# print(p1._Point__x)
+# print(p1.get_coords())
+# print(p1.__dict__)
+# p1.WIDTH = 7
 
-print("*" * 20)
-del droid1
-del droid2
-del droid3
-del droid4
 
-print("Численность роботов", Robot.k)
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __set_x(self, x):
+#         if isinstance(x, (int, float)):
+#             print("Сеттер")
+#             self.__x = x
+#         else:
+#             raise ValueError("Неверный формат данных")
+#
+#     def __get_x(self):
+#         print("Геттер")
+#         return self.__x
+#
+#     def __del_x(self):
+#         print("Удаление свойства")
+#         del self.__x
+#
+#     coordX = property(__get_x, __set_x, __del_x)
+#
+#
+# p1 = Point(5, 10)
+# p1.coordX = 100.0
+# print(p1.coordX)
+# del p1.coordX
+# print(p1.__dict__)
+
+
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     @property
+#     def x(self):
+#         print("Геттер")
+#         return self.__x
+#
+#     @x.setter
+#     def x(self, x):
+#         if isinstance(x, (int, float)):
+#             print("Сеттер")
+#             self.__x = x
+#         else:
+#             raise ValueError("Неверный формат данных")
+#
+#     @x.deleter
+#     def x(self):
+#         print("Удаление свойства")
+#         del self.__x
+#
+#     # coordX = property(__get_x, __set_x, __del_x)
+#
+#
+# p1 = Point(5, 10)
+# p1.x = "100.0"
+# print(p1.x)
+# del p1.x
+# print(p1.__dict__)
+
