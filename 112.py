@@ -4020,7 +4020,7 @@
 
 # os
 # os.path
-
+import csv
 import os
 
 # print("Текущая директория:", os.getcwd())
@@ -6619,7 +6619,6 @@ import pickle
 
 import json
 
-
 # data = {
 #   'firstName': 'Jane',
 #   "lastName": "Doe",
@@ -6913,7 +6912,7 @@ import json
 
 
 # CSV (Comma Separated Values)
-import csv
+# import csv
 
 # with open('data.csv') as r_file:
 #     file_reader = csv.reader(r_file, delimiter=",")
@@ -7014,12 +7013,317 @@ import csv
 #     for d in data:
 #         write.writerow(d)
 
-from bs4 import BeautifulSoup
+# from bs4 import BeautifulSoup
+# import re
 
-f = open('index.html').read()
-soup = BeautifulSoup(f, 'html.parser')
+
+# def get_copywriter(tag):
+#     whois = tag.find('div', class_="whois")
+#     if "Copywriter" in whois:
+#         return tag
+#     return None
+# def get_salary(s):
+#     pattern = r'\d+'
+#     # res = re.findall(pattern, s)[0]
+#     res = re.search(pattern, s).group()
+#     print(res)
+#
+#
+# f = open('index.html', encoding='utf-8').read()
+# soup = BeautifulSoup(f, 'html.parser')
 # row = soup.find("div", class_="name").text
 # row = soup.find_all("div", class_="name")
 # row = soup.find_all("div", class_="row")[1].find('div', class_='links')
-row = soup.find_all("div", {"class": "name"})
-print(row)
+# row = soup.find_all("div", {"class": "name"})
+# row = soup.find_all("div", {"data-set": "salary"})
+# row = soup.find("div", text="Alena").parent
+# row = soup.find("div", text="Alena").find_parent(class_="row")
+# row = soup.find("div", id="whois3").find_next_sibling()
+# row = soup.find("div", id="whois3").find_previous_sibling()
+# print(row)
+# copywriter = []
+# row = soup.find_all("div", class_="row")
+# for i in row:
+#     cw = get_copywriter(i)
+#     if cw:
+#         copywriter.append(cw)
+#
+# print(copywriter)
+# salary = soup.find_all('div', {'data-set': 'salary'})
+#
+# for i in salary:
+#     get_salary(i.text)
+
+import requests
+from bs4 import BeautifulSoup
+import re
+
+# r = requests.get("https://ru.wordpress.org/")
+# # print(r.status_code)
+# # print(r.headers['content-type'])
+# # print(r.content)
+# # r.encoding = 'utf-8'
+# print(r.text)
+
+# def get_html(url):
+#     r = requests.get(url)
+#     return r.text
+#
+#
+# def refined(s):
+#     res = re.sub(r'\D+', '', s)
+#     return res
+#
+#
+# def write_csv(data):
+#     with open('plugins.csv', 'a') as f:
+#         writer = csv.writer(f, lineterminator='\r')
+#         writer.writerow((data['name'], data['url'], data['rating']))
+#
+#
+# def get_data(html):
+#     soup = BeautifulSoup(html, 'lxml')
+#     # p1 = soup.find("header", id="masthead").find('p', class_="site-title").text
+#     s = soup.find_all('section', class_='plugin-section')[1]
+#     plugins = s.find_all('article')
+#
+#     for plugin in plugins:
+#         name = plugin.find("h3").text
+#         url = plugin.find('h3').find('a').get('href')
+#         rating = plugin.find('span', class_="rating-count").find('a').text
+#         r = refined(rating)
+#
+#         data = {'name': name, 'url': url, 'rating': r}
+#         write_csv(data)
+#     # return len(plugins)
+#
+#
+# def main():
+#     url = 'https://ru.wordpress.org/plugins/'
+#     get_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+
+# def get_html(url):
+#     r = requests.get(url)
+#     return r.text
+#
+#
+# def refine_cy(s):
+#     return s.split()[-1]  # ['Протестирован', 'с', '5.9.3']
+#
+#
+# def write_csv(data):
+#     with open('plugins1.csv', 'a') as f:
+#         writer = csv.writer(f, lineterminator='\r')
+#         writer.writerow((data['name'],
+#                          data['url'],
+#                          data['snippet'],
+#                          data['active'],
+#                          data['cy']))
+#
+#
+# def get_page_data(html):
+#     soup = BeautifulSoup(html, 'lxml')
+#
+#     elements = soup.find_all("article", class_="plugin-card")
+#     for el in elements:
+#         try:
+#             name = el.find('h3').text
+#         except ValueError:
+#             name = ''
+#
+#         try:
+#             url = el.find('h3').find('a').get('href')
+#         except ValueError:
+#             url = ''
+#
+#         try:
+#             snippet = el.find('div', class_='entry-excerpt').text.strip()
+#         except ValueError:
+#             snippet = ''
+#
+#         try:
+#             active = el.find("span", class_="active-installs").text.strip()
+#         except ValueError:
+#             active = ''
+#
+#         try:
+#             c = el.find('span', class_="tested-with").text.strip()
+#             cy = refine_cy(c)
+#         except ValueError:
+#             cy = ''
+#
+#         data = {
+#             'name': name,
+#             'url': url,
+#             'snippet': snippet,
+#             'active': active,
+#             'cy': cy
+#         }
+#
+#         write_csv(data)
+#
+#
+# def main():
+#     for i in range(23, 26):
+#         url = f'https://ru.wordpress.org/plugins/browse/blocks/page/{i}/'
+#         get_page_data(get_html(url))
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+#
+# from parser import Parser
+#
+#
+# def main():
+#     pars = Parser("https://www.ixbt.com/live/index/type/news/", "news.txt")
+#     pars.run()
+#
+#
+# if __name__ == '__main__':
+#     main()
+
+
+# Сокет — это программный интерфейс для обеспечения информационного обмена между процессами.
+
+# Сокет состоит из IP-адреса и порта.
+
+# 127.0.0.1:5000
+
+# import socket
+# from view import index, blog
+#
+#
+# URLS = {
+#     '/': index,
+#     '/blog': blog
+# }
+#
+#
+# def parse_request(request):
+#     parsed = request.split(" ")
+#     method = parsed[0]
+#     url = parsed[1]
+#     return method, url
+#
+#
+# def generate_headers(method, url):
+#     if method != 'GET':
+#         return 'HTTP/1.1 405 Method Allowed!\n\n', 405
+#     if url not in URLS:
+#         return 'HTTP/1.1 404 Page Not Found!\n\n', 404
+#     return 'HTTP/1.1 200 OK!\n\n', 200
+#
+#
+# def generate_content(code, url):
+#     if code == 404:
+#         return '<h1>404</h1><h3>Page Not Found</h3>'
+#     elif code == 405:
+#         return '<h1>405</h1><h3>Method Allowed</h3>'
+#     return URLS[url]()
+#
+#
+# def generate_response(request):
+#     method, url = parse_request(request)
+#     header, code = generate_headers(method, url)
+#     body = generate_content(code, url)
+#     return (header + body).encode()
+#
+#
+# def run():
+#     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#     server_socket.bind(('127.0.0.1', 5000))
+#     server_socket.listen()  # 127.0.0.1:5000
+#
+#     while True:
+#         client_socket, addr = server_socket.accept()
+#         request = client_socket.recv(1024)
+#
+#         print(f"Клиент: {addr} => \n{request.decode('utf-8')}")
+#
+#         response = generate_response(request.decode())
+#         client_socket.sendall(response)
+#         client_socket.close()
+#
+#
+# if __name__ == '__main__':
+#     run()
+
+
+import sqlite3 as sq
+
+
+# con = sq.connect('profile.db')
+# cur = con.cursor()
+#
+# cur.execute("""
+# """)
+#
+# con.close()
+
+# with sq.connect('profile.db') as con:
+#     cur = con.cursor()
+#     cur.execute("DROP TABLE users")
+    # cur.execute("""CREATE TABLE IF NOT EXISTS users(
+    # id INTEGER PRIMARY KEY AUTOINCREMENT,
+    # name TEXT NOT NULL,
+    # sum REAL,
+    # date TEXT
+    # )""")
+
+
+# with sq.connect('user.db') as con:
+#     cur = con.cursor()
+#     cur.execute("""
+#               DROP TABLE person_table
+#            """)
+    # cur.execute("""
+    #       ALTER TABLE person_table
+    #       DROP COLUMN home_address;
+    #    """)
+    # cur.execute("""
+    #    ALTER TABLE person_table
+    #    RENAME COLUMN address TO home_address;
+    # """)
+    # cur.execute("""
+    # ALTER TABLE person_table
+    # ADD COLUMN address;
+    # """)
+    # cur.execute("""CREATE TABLE IF NOT EXISTS person(
+    # id INTEGER PRIMARY KEY AUTOINCREMENT,
+    # name TEXT NOT NULL,
+    # phone BLOB NOT NULL DEFAULT +79090000000,
+    # age INTEGER NOT NULL CHECK(age > 0 AND age < 100),
+    # email TEXT UNIQUE
+    # )""")
+    # cur.execute("""
+    # ALTER TABLE person
+    # RENAME TO person_table;
+    # """)
+
+
+with sq.connect('db_4.db') as con:
+    cur = con.cursor()
+    cur.execute("""
+    SELECT *
+    FROM Ware
+    ORDER BY Price DESC
+    LIMIT 2, 5;                     
+    """)
+
+    # res = cur.fetchall()
+    # print(res)
+    # for res in cur:
+    #     print(res)
+    res = cur.fetchone()
+    res2 = cur.fetchmany(2)
+    print(res)
+    print(res2)
+
+
