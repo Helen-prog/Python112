@@ -7326,7 +7326,7 @@ import re
 #     print(res)
 #     print(res2)
 
-import sqlite3 as sq
+# import sqlite3 as sq
 
 # cars = [
 #     ('BMW', 54000),
