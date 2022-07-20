@@ -14,6 +14,12 @@ def password(request):
     if request.GET.get('uppercase'):
         char.extend([chr(i) for i in range(65, 91)])
 
+    if request.GET.get('numbers'):
+        char.extend([chr(i) for i in range(48, 58)])
+
+    if request.GET.get('special'):
+        char.extend([chr(i) for i in range(33, 48)])
+
     psw = ''
     length = int(request.GET.get('length'))
     for i in range(length):
